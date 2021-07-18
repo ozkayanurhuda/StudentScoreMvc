@@ -1,0 +1,29 @@
+﻿@using StudentScoreMvc.Models.EntityFramework
+@model List<TBLCOURSES>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+
+        <th>COURSE ID</th>
+        <th>COURSE NAME</th>
+        <th>OPERATIONS</th>
+
+    </tr>
+
+    <tbody>
+        @foreach(var crs in Model)
+            {
+                <tr>
+                    <td>@crs.COURSEID</td>
+                    <td>@crs.COURSENAME</td>
+                    <td><a href="/Courses/DeleteCourse/@crs.COURSEID" class="btn btn-danger">DELETE</a>
+                    <a href="/Courses/BringCourse/@crs.COURSEID" class="btn btn-success">UPDATE</a></td>
+                </tr>
+            }
+    </tbody>
+</table>
+ <a href="/Courses/NewCourse" class="btn btn-primary">New Course</a>

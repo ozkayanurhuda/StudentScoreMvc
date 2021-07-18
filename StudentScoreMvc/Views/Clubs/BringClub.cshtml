@@ -1,0 +1,22 @@
+﻿@model StudentScoreMvc.Models.EntityFramework.TBLCLUBS
+@{
+    ViewBag.Title = "BringClub";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*form ilk yüklendiğinde(Btn ye basıldğında) çalışacak actionresult, inside clubs formMet.post methodunda*@
+@using (Html.BeginForm("UpdateClub", "Clubs", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.CLUBNAME)
+        @Html.TextBoxFor(m => m.CLUBNAME, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(m => m.CLUBID)
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Update</button>
+    </div>
+
+}
+

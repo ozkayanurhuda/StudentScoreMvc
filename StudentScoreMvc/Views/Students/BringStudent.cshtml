@@ -1,0 +1,36 @@
+﻿@model  StudentScoreMvc.Models.EntityFramework.TBLSTUDENTS
+@{
+    ViewBag.Title = "BringStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateStudent", "Students", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.STUNAME)
+        @Html.TextBoxFor(m => m.STUNAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.STUSURNAME)
+        @Html.TextBoxFor(m => m.STUSURNAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.STUPHOTO)
+        @*@Html.TextBoxFor(m => m.STUPHOTO, new { @class = "form-control" })*@
+        @Html.DropDownListFor(m => m.TBLCLUBS.CLUBID, (List<SelectListItem>)ViewBag.val, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.STUCLUB)
+        @Html.TextBoxFor(m => m.STUCLUB, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.STUGENDER)
+        @Html.TextBoxFor(m => m.STUGENDER, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(m => m.STUID)
+    <div style="margin-top:15px">
+        <button class="btn btn-primary">Update</button>
+
+    </div>
+}

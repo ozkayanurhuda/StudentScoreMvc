@@ -1,0 +1,48 @@
+﻿@model StudentScoreMvc.Models.EntityFramework.TBLSCORES
+@{
+    ViewBag.Title = "BringScore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("BringScore", "Scores", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.STUID)
+        @Html.TextBoxFor(m => m.STUID, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EXAM1)
+        @Html.TextBoxFor(m => m.EXAM1, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EXAM2)
+        @Html.TextBoxFor(m => m.EXAM2, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EXAM3)
+        @Html.TextBoxFor(m => m.EXAM3, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PROJECT)
+        @Html.TextBoxFor(m => m.PROJECT, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MEAN)
+        @Html.TextBoxFor(m => m.MEAN, new {@Value=ViewBag.mn, @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.STATUS)
+        @Html.TextBoxFor(m => m.STATUS, new { @class = "form-control" })
+
+    </div>
+    @Html.HiddenFor(m => m.SCOREID)
+
+    <div style="margin-top:15px">
+        <button type="submit" name="operation" value="CALCULATE" class="btn btn-default">Calculate</button>
+        <br /><br />
+        <button type="submit" name="operation" value="UPDATESCORE" class="btn btn-info">Update Score</button>
+        
+    </div>
+    
+}
+

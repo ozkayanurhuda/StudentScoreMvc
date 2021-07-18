@@ -1,0 +1,35 @@
+﻿@using StudentScoreMvc.Models.EntityFramework
+@model List<TBLSTUDENTS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>STUDENT ID</th>
+        <th>NAME</th>
+        <th>SURNAME</th>
+        <th>GENDER</th>
+        <th>CLUB</th>
+        <th>OPERATIONS</th>
+    </tr>
+    <tbody>
+        @foreach(var stu in Model)
+            {
+                <tr>
+                    <td>@stu.STUID</td>
+                    <td>@stu.STUNAME</td>
+                    <td>@stu.STUSURNAME</td>
+                    <td>@stu.STUGENDER</td>
+                    <td>@stu.TBLCLUBS.CLUBNAME</td>
+                    <td><a href="/Students/DeleteStudent/@stu.STUID" class="btn btn-danger">Delete</a>
+                    <a href="/Students/BringStudent/@stu.STUID" class="btn btn-success">Update</a></td>
+
+
+                </tr>
+            }
+    </tbody>
+</table>
+<a href="/Students/NewStudent" class="btn btn-primary">New Student</a>
+

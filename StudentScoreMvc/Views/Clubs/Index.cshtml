@@ -1,0 +1,27 @@
+﻿@using StudentScoreMvc.Models.EntityFramework
+@model List<TBLCLUBS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>CLUB ID</th>
+        <th>CLUB NAME</th>
+        <th>OPERATIONS</th>
+    </tr>
+    <tbody>
+        @foreach(var clb in Model)
+            {
+                <tr>
+                    <td>@clb.CLUBID</td>
+                    <td>@clb.CLUBNAME</td>
+                    <td><a href="/Clubs/DeleteClub/@clb.CLUBID" class="btn btn-danger">Delete</a>
+                    <a href="/Clubs/BringClub/@clb.CLUBID" class="btn btn-success">Update</a></td>
+                </tr>
+            }
+    </tbody>
+</table>
+<a href="/Clubs/NewClub" class="btn btn-primary">New Club</a>
+

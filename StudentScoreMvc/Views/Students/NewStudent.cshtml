@@ -1,0 +1,48 @@
+﻿@model StudentScoreMvc.Models.EntityFramework.TBLSTUDENTS
+@{
+    ViewBag.Title = "NewStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <form method="post" class="form-group">
+        <div>
+            <label>Student Name</label>
+            <input type="text" class="form-control" name="STUNAME" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Student Surname</label>
+            <input type="text" class="form-control" name="STUSURNAME" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Student Photo</label>
+            <input type="text" class="form-control" name="STUPHOTO" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Student Gender</label>
+            <input type="text" class="form-control" name="STUGENDER" />
+        </div>
+        <div style="margin-top:10px">
+            <label>Student Club</label>
+            @Html.DropDownListFor(m => m.TBLCLUBS.CLUBID, (List<SelectListItem>)ViewBag.val, new { @class = "form-control" })
+
+        </div>
+        <div style="margin-top:10px">
+            <button class="btn btn-primary">Add Student</button>
+        </div>
+    </form>
+</div>
+
+
+@*html dropdownlist kullanımı*@
+@*<label>Student Club</label>
+     @Html.DropDownList("Cities",
+    new[]
+    {
+        new SelectListItem() {Value="1",Text="Ankara"},
+        new SelectListItem() {Value="2", Text="İzmir"},
+        new SelectListItem() {Value="3",Text="Bursa"},
+        new SelectListItem() {Value="4", Text="İstanbul"}
+    }, "Select City...", new { @class = "form-control" })*@
